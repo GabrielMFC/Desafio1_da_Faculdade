@@ -45,16 +45,18 @@ input{
     width: 50%;
     height: 6%;
     margin-top: 8%;
+    border-radius: 1em;
+    padding: 1%;
 }
 button{
     border: none;
     cursor: pointer;
     font-family: "Maven Pro";
     position: relative;
-    right: 14%;
+    right: 13%;
     width: 20%;
     height: 10%;
-    border-radius: 5% 30% 30%;
+    border-radius: 1em 30em 30em;
     font-weight: 450;
     margin-top: 2%;
 }
