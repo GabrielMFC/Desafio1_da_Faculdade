@@ -91,7 +91,7 @@ button:hover{
     }
 }
 
-/* responsivo */
+/* responsividade */
 @media screen and (max-width: 380px) {
     #teladelogin{
         width: 42vh;

@@ -50,17 +50,35 @@
         position: absolute;
         width: 90%;
         height: 20vh;
-        background-color: rgba(255, 255, 255, 0.263);
-        opacity: 0.6;
+        background-color: rgba(11, 11, 11, 0.082);
         border-radius: 0em 1em 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
-      #nome{
+      .add_produto{
+        width: 95%;
+        height: 5vh;
+        background-color: darkorchid;
         position: absolute;
-        width: 20vh;
-        height: 10vh;
-        background-color: red;
-        display: inline-block;
         border-radius: 0em 2em 2em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        cursor: pointer;
+        color: white;
+      }
+      .add_produto:hover{
+        animation: mudarCor 0.5s linear;
+        animation-fill-mode: forwards;
+      }
+      @keyframes mudarCor {
+        100%{
+          color: darkorchid;
+          background-color: white;
+          transform-origin: center;
+        }
       }
     </style>
   </head>
@@ -71,17 +89,25 @@
     </nav>
     <div id="centralizarAddCrudFlex">
       <div id="campoDeadicionar">
-
-        <div id="nome">
-          <input type="text" id="">
+        <div class="add_produto">
+          Adicionar produto
         </div>
-
-        <div id="preco"></div>
-
-        <div id="qtd-estoque"></div>
-
-        <div id="adicionar"></div>
       </div>
     </div>
+    <h1 id="hteste"></h1>
+    <script>
+      function ChamarOsDadosDoSRAPI() {
+        const URL = "http://localhost:3400/produtos/1"
+        fetch(URL, {
+          method: "GET",
+          headers: {"Content-Type": "application/json", "Authorization": "df154cf01fee2021dbbd7eeeaae18b5b"},
+        }).then(response => response.json())
+        .then(response => {
+          document.getElementById("hteste").innerHTML = response.nome
+          console.log(response)
+        })
+      }
+      ChamarOsDadosDoSRAPI()
+    </script>
   </body>
 </html>
