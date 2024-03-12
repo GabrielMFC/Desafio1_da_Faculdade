@@ -25,10 +25,13 @@ function Autenticar(email, senha){
         body: JSON.stringify({email, senha})
     }).then(response => response = response.json())
     .then(response => {
-        console.log(response)
+        console.log(response.token)
+        localStorage.setItem("token", response.token)
         window.open("testeDeHome.html", "_self")
+
     })
     .catch(erro => {
         console.log(erro)
     })
 }
+/* */

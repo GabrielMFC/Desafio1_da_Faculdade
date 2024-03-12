@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
     <style>
       * {
         margin: 0%;
@@ -56,7 +60,7 @@
         justify-content: center;
         align-items: center;
       }
-      .add_produto{
+      .add_produto {
         width: 95%;
         height: 5vh;
         background-color: darkorchid;
@@ -69,45 +73,88 @@
         cursor: pointer;
         color: white;
       }
-      .add_produto:hover{
+      .add_produto:hover {
         animation: mudarCor 0.5s linear;
         animation-fill-mode: forwards;
       }
       @keyframes mudarCor {
-        100%{
+        100% {
           color: darkorchid;
           background-color: white;
           transform-origin: center;
         }
+      }
+      #corpoDaTable {
+        width: 90vh;
+        background-color: rgba(0, 0, 0, 0.437);
       }
     </style>
   </head>
   <body>
     <nav>
       <h1>Crud de produtos</h1>
-      <input type="text" placeholder="Digite um produto..." />
     </nav>
     <div id="centralizarAddCrudFlex">
       <div id="campoDeadicionar">
-        <div class="add_produto">
-          Adicionar produto
-        </div>
+        <div class="add_produto">Adicionar produto</div>
       </div>
     </div>
-    <h1 id="hteste"></h1>
+
+    <table class="table table-dark mt-5 table-bordered" id="corpoDaTable">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Quantidade em estoque</th>
+          <th scope="col">Data de cadastro</th>
+        </tr>
+      </thead>
+      <tbody id="bodyDalista">
+        
+      </tbody>
+    </table>
+
     <script>
-      function ChamarOsDadosDoSRAPI() {
-        const URL = "http://localhost:3400/produtos/1"
-        fetch(URL, {
+      let tokenDeAcesso = localStorage.getItem("token")
+      let nome = document.getElementsByClassName("nome")
+      let preco = document.getElementsByClassName("preco")
+      let qtd = document.getElementsByClassName("qtd-estoque")
+      let dataDeCadastro = document.getElementsByClassName("data")
+      let bodyDaLista = document.getElementById("bodyDalista")
+
+      function VerificarnumeroDeObjetos() {
+        const URL2 = "http://localhost:3400/produtos"
+        fetch(URL2, {
           method: "GET",
-          headers: {"Content-Type": "application/json", "Authorization": "df154cf01fee2021dbbd7eeeaae18b5b"},
-        }).then(response => response.json())
-        .then(response => {
-          document.getElementById("hteste").innerHTML = response.nome
-          console.log(response)
-        })
+          headers: {"Content-Type": "application/json", "Authorization": tokenDeAcesso},
+        }).then(batata => batata.json())
+    
+        .then(batata => {
+        for(var i = 0; i < batata.length; i++){
+          let tr = document.createElement("tr")
+          let th = document.createElement("th")
+          let tdnome = document.createElement("td")
+          let tdpreco = document.createElement("td")
+          let tdqtd = document.createElement("td")
+          let tddata = document.createElement("td")
+          bodyDaLista.appendChild(tr)
+          tr.appendChild(th)
+          tr.appendChild(tdnome)
+          tr.appendChild(tdpreco)
+          tr.appendChild(tdqtd)
+          tr.appendChild(tddata)
+          th.innerHTML = i + 1
+          tdnome.innerHTML = batata[i].nome
+          tdpreco.innerHTML = batata[i].valor
+          tdqtd.innerHTML = batata[i].quantidadeEstoque
+          tddata.innerHTML = batata[i].dataCadastro
+        }
+
+      })
       }
-      ChamarOsDadosDoSRAPI()
+      
+      VerificarnumeroDeObjetos()
     </script>
   </body>
 </html>
