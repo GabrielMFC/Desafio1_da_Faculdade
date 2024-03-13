@@ -8,12 +8,6 @@ let CampoDaSenha = document.getElementById("senha")
 btnDeEntrar.addEventListener("click", () =>{
     let emailDigitado = CampoDoemail.value.toLowerCase()
     let senhaDigitada = CampoDaSenha.value
-    /*
-    if(emailDigitado != EMAIL || senhaDigitada != SENHA){
-        alert("Email ou senha incorretos! Tente novamente")
-        return
-    }
-    */
    Autenticar(emailDigitado, senhaDigitada)
 })
 
@@ -28,10 +22,8 @@ function Autenticar(email, senha){
         console.log(response.token)
         localStorage.setItem("token", response.token)
         window.open("testeDeHome.html", "_self")
-
     })
     .catch(erro => {
         console.log(erro)
     })
 }
-/* */

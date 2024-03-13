@@ -8,87 +8,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
-    <style>
-      * {
-        margin: 0%;
-        padding: 0%;
-        font-family: sans-serif;
-      }
-      body,
-      html {
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.478);
-      }
-      nav {
-        width: 100%;
-        height: 10vh;
-        background-color: darkorchid;
-        display: flex;
-        align-items: center;
-      }
-      h1 {
-        color: white;
-        position: absolute;
-        margin: 5%;
-      }
-      input {
-        position: absolute;
-        right: 0%;
-        margin-right: 5%;
-        height: 3vh;
-        width: 30vh;
-        border-radius: 3em;
-        outline: none;
-        border: none;
-        padding: 1%;
-      }
-      #centralizarAddCrudFlex {
-        width: 100%;
-        height: 20vh;
-        margin-top: 2%;
-        display: flex;
-        justify-content: center;
-      }
-      #campoDeadicionar {
-        position: absolute;
-        width: 90%;
-        height: 20vh;
-        background-color: rgba(11, 11, 11, 0.082);
-        border-radius: 0em 1em 1em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .add_produto {
-        width: 95%;
-        height: 5vh;
-        background-color: darkorchid;
-        position: absolute;
-        border-radius: 0em 2em 2em;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-weight: bold;
-        cursor: pointer;
-        color: white;
-      }
-      .add_produto:hover {
-        animation: mudarCor 0.5s linear;
-        animation-fill-mode: forwards;
-      }
-      @keyframes mudarCor {
-        100% {
-          color: darkorchid;
-          background-color: white;
-          transform-origin: center;
-        }
-      }
-      #corpoDaTable {
-        width: 90vh;
-        background-color: rgba(0, 0, 0, 0.437);
-      }
-    </style>
+    <link rel="stylesheet" href="home.css">
   </head>
   <body>
     <nav>
@@ -96,7 +16,8 @@
     </nav>
     <div id="centralizarAddCrudFlex">
       <div id="campoDeadicionar">
-        <div class="add_produto">Adicionar produto</div>
+        <div class="add_produto" id="adicionar">Adicionar produto</div>
+        <div class="add_produto" id="remover">Remover produto</div>
       </div>
     </div>
 
@@ -110,51 +31,23 @@
           <th scope="col">Data de cadastro</th>
         </tr>
       </thead>
-      <tbody id="bodyDalista">
-        
-      </tbody>
+      <tbody id="bodyDalista"></tbody>
     </table>
-
-    <script>
-      let tokenDeAcesso = localStorage.getItem("token")
-      let nome = document.getElementsByClassName("nome")
-      let preco = document.getElementsByClassName("preco")
-      let qtd = document.getElementsByClassName("qtd-estoque")
-      let dataDeCadastro = document.getElementsByClassName("data")
-      let bodyDaLista = document.getElementById("bodyDalista")
-
-      function VerificarnumeroDeObjetos() {
-        const URL2 = "http://localhost:3400/produtos"
-        fetch(URL2, {
-          method: "GET",
-          headers: {"Content-Type": "application/json", "Authorization": tokenDeAcesso},
-        }).then(batata => batata.json())
-    
-        .then(batata => {
-        for(var i = 0; i < batata.length; i++){
-          let tr = document.createElement("tr")
-          let th = document.createElement("th")
-          let tdnome = document.createElement("td")
-          let tdpreco = document.createElement("td")
-          let tdqtd = document.createElement("td")
-          let tddata = document.createElement("td")
-          bodyDaLista.appendChild(tr)
-          tr.appendChild(th)
-          tr.appendChild(tdnome)
-          tr.appendChild(tdpreco)
-          tr.appendChild(tdqtd)
-          tr.appendChild(tddata)
-          th.innerHTML = i + 1
-          tdnome.innerHTML = batata[i].nome
-          tdpreco.innerHTML = batata[i].valor
-          tdqtd.innerHTML = batata[i].quantidadeEstoque
-          tddata.innerHTML = batata[i].dataCadastro
-        }
-
-      })
-      }
-      
-      VerificarnumeroDeObjetos()
+    <div  id="centralizarflexi">
+      <div id="idPaginaCadastro" class="paginaDeCadastro Desaparecer">
+        <h2>Adicionar</h2>
+        <div class="posicionarElementos">
+          <p>Nome:</p>
+          <input type="text" id="nome_input" placeholder="Digite o nome..." />
+          <p>Preço:</p>
+          <input type="text" id="valor_input" placeholder="Digite o preço..." />
+          <p>Quantidade em estoque:</p>
+          <input type="text" id="qtd_em_estoque_input" placeholder="Digite a Quantidade..." />
+          <div id="botaoDeConfirmar">Confirmar</div>
+        </div>
+      </div>
+    </div>
+    <script src="home.js">
     </script>
   </body>
 </html>

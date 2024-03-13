@@ -1,0 +1,162 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    font-family: sans-serif;
+  }
+  body,
+  html {
+    width: 100%;
+    height: 100vh;
+  }
+  nav {
+    width: 100%;
+    height: 10vh;
+    background-color: darkorchid;
+    display: flex;
+    align-items: center;
+  }
+  h1 {
+    color: white;
+    position: absolute;
+    margin: 5%;
+  }
+  #centralizarAddCrudFlex {
+    width: 100%;
+    height: 20vh;
+    margin-top: 2%;
+    display: flex;
+    justify-content: center;
+  }
+  #campoDeadicionar {
+    position: absolute;
+    width: 90%;
+    height: 20vh;
+    background-color: rgba(11, 11, 11, 0.082);
+    border-radius: 0em 1em 1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .add_produto {
+    width: 55%;
+    height: 5vh;
+    margin: 5%;
+    background-color: darkorchid;
+    border-radius: 0em 2em 2em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    z-index: 1;
+  }
+  #adicionar {
+    margin-left: 2%;
+  }
+  #adicionar:hover {
+    animation: mudarCoradicionar 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  #remover:hover {
+    animation: mudarCorremover 0.5s linear;
+    animation-fill-mode: forwards;
+  }
+  @keyframes mudarCoradicionar {
+    100% {
+      color: white;
+      background-color: greenyellow;
+      transform-origin: center;
+    }
+  }
+  @keyframes mudarCorremover {
+    100% {
+      color: white;
+      background-color: red;
+      transform-origin: center;
+    }
+  }
+  #corpoDaTable {
+    width: 90vh;
+    background-color: rgba(0, 0, 0, 0.437);
+  }
+  #centralizarflexi {
+    width: 100%;
+    height: 85%;
+    position: absolute;
+    top: 13%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 0;
+  }
+  .paginaDeCadastro {
+    width: 50vh;
+    height: 50vh;
+    position: absolute;
+    background-color: rgb(42, 41, 41);
+    z-index: 3;
+    border-radius: 0em 2em 2em 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Desaparecer{
+    display: none;
+  }
+  h2 {
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    display: block;
+    color: white;
+    text-align: center;
+    background-color: darkorchid;
+    font-weight: bold;
+  }
+  .posicionarElementos {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  p {
+    width: 100%;
+    background-color: rgba(153, 50, 204, 0.027);
+    color: white;
+    position: relative;
+    display: block;
+    font-weight: bold;
+    text-align: center;
+  }
+  input {
+    width: 50%;
+    height: 3vh;
+    border-radius: 2em;
+    border: none;
+    padding: 2%;
+    position: relative;
+    display: block;
+    margin-bottom: 5%;
+    margin-left: 25%;
+    text-align: center;
+  }
+  #botaoDeConfirmar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 45%;
+    height: 3.5vh;
+    background-color: white;
+    margin-left: 27%;
+    border-radius: 0em 2em 2em;
+    cursor: pointer;
+  }
+  #botaoDeConfirmar:hover {
+    animation: mudarCoradicionar 0.5s linear;
+    animation-fill-mode: forwards;
+  }
