@@ -21,7 +21,7 @@ function Autenticar(email, senha){
     .then(response => {
         console.log(response.token)
         localStorage.setItem("token", response.token)
-        window.open("testeDeHome.html", "_self")
+        window.open("Home.html", "_self")
     })
     .catch(erro => {
         console.log(erro)

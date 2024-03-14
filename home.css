@@ -3,10 +3,9 @@
     padding: 0%;
     font-family: sans-serif;
   }
-  body,
-  html {
+  body {
+    background-color: rgba(0, 0, 0, 0.678);
     width: 100%;
-    height: 100vh;
   }
   nav {
     width: 100%;
@@ -31,7 +30,7 @@
     position: absolute;
     width: 90%;
     height: 20vh;
-    background-color: rgba(11, 11, 11, 0.082);
+    background-color: rgba(255, 255, 255, 0.092);
     border-radius: 0em 1em 1em;
     display: flex;
     justify-content: center;
@@ -77,11 +76,7 @@
       transform-origin: center;
     }
   }
-  #corpoDaTable {
-    width: 90vh;
-    background-color: rgba(0, 0, 0, 0.437);
-  }
-  #centralizarflexi {
+  .centralizarflexi{
     width: 100%;
     height: 85%;
     position: absolute;
@@ -91,7 +86,18 @@
     align-items: center;
     z-index: 0;
   }
-  .paginaDeCadastro {
+  #centralizaratable{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #corpoDaTable{
+    width: 95%;
+    max-width: 95%;
+    text-align: center;
+    color: white;
+  }
+  .pagina{
     width: 50vh;
     height: 50vh;
     position: absolute;
@@ -101,6 +107,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  #itensDoDelete{
+    position: absolute;
+    top: 5%;
   }
   .Desaparecer{
     display: none;
@@ -124,7 +134,7 @@
   }
   p {
     width: 100%;
-    background-color: rgba(153, 50, 204, 0.027);
+    background-color: rgba(153, 50, 204, 0.052);
     color: white;
     position: relative;
     display: block;
@@ -143,7 +153,7 @@
     margin-left: 25%;
     text-align: center;
   }
-  #botaoDeConfirmar {
+  .botaoDeConfirmar{
     position: relative;
     display: flex;
     justify-content: center;
@@ -152,11 +162,10 @@
     width: 45%;
     height: 3.5vh;
     background-color: white;
-    margin-left: 27%;
     border-radius: 0em 2em 2em;
     cursor: pointer;
   }
-  #botaoDeConfirmar:hover {
+  .botaoDeConfirmar:hover {
     animation: mudarCoradicionar 0.5s linear;
     animation-fill-mode: forwards;
   }
