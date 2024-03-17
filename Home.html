@@ -19,6 +19,7 @@
       <div id="campoDeadicionar">
         <div class="add_produto" id="adicionar">Adicionar produto</div>
         <div class="add_produto" id="remover">Remover produto</div>
+        <div class="add_produto" id="editar">Editar</div>
       </div>
     </div>
 
@@ -41,7 +42,7 @@
       </table>
     </div>
 
-    <!-- Página de cadastro/deletar -->
+    <!-- Página de cadastro/deletar/Editar -->
     <div class="centralizarflexi">
       <div id="idPaginaCadastro" class="pagina Desaparecer">
         <h2>Adicionar</h2>
@@ -56,19 +57,36 @@
             id="qtd_em_estoque_input"
             placeholder="Digite a Quantidade..."
           />
-          <div class="botaoDeConfirmar" id="botaoDeConfirmarDoADD">Confirmar</div>
+          <div class="botaoDeConfirmar alinharBotao" id="botaoDeConfirmarDoADD">Confirmar</div>
         </div>
       </div>
 
       <div id="idPaginaDelete" class="pagina Desaparecer">
-        <h2>Deletar item</h2>
+        <h2>Deletar produto</h2>
         <div class="posicionarElementos" id="itensDoDelete">
-          <p>Digite o número do item:</p>
+          <p>Digite o número do produto:</p>
           <input type="text" id="delete_input" placeholder="Digite o número..."/>
         </div>
         <div class="botaoDeConfirmar" id="botaoDeConfirmarDoREMOVER">Confirmar</div>
       </div>
-    </div>
+
+      <div id="idPaginaEditar" class="pagina Desaparecer">
+        <h2>Editar produto</h2>
+        <div class="posicionarElementos">
+          <p>Número do produto</p>
+          <input type="text" placeholder="Digite o número do produto" id="numeroParaEditar">
+          <p>Nome:</p>
+          <input type="text" placeholder="Digite o novo nome..." id="input_de_nomeEditar"/>
+          <p>Preço:</p>
+          <input type="text" placeholder="Digite o novo preço..." id="input_de_valorEditar"/>
+          <p>Quantidade em estoque:</p>
+          <input
+            type="text" 
+            placeholder="Digite a Quantidade..."
+          id="input_de_qtdEditar"/>
+          <div class="botaoDeConfirmar alinharBotao" id="botaoDeRedefinir">Redefinir</div>
+        </div>
+      </div>
 
     <script src="home.js"></script>
   </body>
