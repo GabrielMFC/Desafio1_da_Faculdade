@@ -7,10 +7,12 @@
     background-color: rgba(0, 0, 0, 0.678);
     width: 100%;
   }
+  /* Menu de controle */
   nav {
+    color: ma;
     width: 100%;
     height: 10vh;
-    background-color: darkorchid;
+    background: linear-gradient(to right, darkorchid, purple);
     display: flex;
     align-items: center;
   }
@@ -37,8 +39,8 @@
     align-items: center;
   }
   .add_produto {
-    width: 55%;
-    height: 5vh;
+    width: 75%;
+    height: 6vh;
     margin: 5%;
     background-color: darkorchid;
     border-radius: 0em 2em 2em;
@@ -97,17 +99,7 @@
     align-items: center;
     z-index: 0;
   }
-  #centralizaratable{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  #corpoDaTable{
-    width: 95%;
-    max-width: 95%;
-    text-align: center;
-    color: white;
-  }
+
   .pagina{
     width: 50vh;
     height: 50vh;
@@ -189,4 +181,29 @@
   .posicionarElementos > input{
     width: 40vh;
     right: 15%;
+  }
+
+  /* Tabela */
+  #centralizaratable{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  #corpoDaTable{
+    width: 85%;
+    text-align: center;
+    color: white;
+    position: absolute;
+  }
+  /* Responsividade */
+  @media screen and (max-width: 680px) {
+    .add_produto{
+      height: 8vh;
+      font-size: 1.6vh;
+    }
+    #corpoDaTable{
+      min-width: 0vh;
+      width: 1vh;
+    }
   }

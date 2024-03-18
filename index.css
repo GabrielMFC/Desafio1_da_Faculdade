@@ -66,14 +66,6 @@ button:hover{
     font-weight: bold;
     color: white;
 }
-#esqueciSenha{
-    position: absolute;
-    bottom: 10%;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: underline;
-}
 @keyframes mudarCorDoBotao {
     100%{
         background-color: darkorchid;
